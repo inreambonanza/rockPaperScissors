@@ -1,53 +1,40 @@
-
-//Randomly return rock,paper, or scissors
+//Auto generated computer choice funtion
 function getComputerChoice(){
 
-    const choices = ["rock","paper","scissors"];
+    const compChoice = ["rock", "paper", "scissors"]
 
-    let randomChoice = Math.floor(Math.random()*3);
+    const randomChoice = Math.floor(Math.random()*3);
 
-    // //Generate Random Computer Choice
-    // if(randomChoice === 0){
-    //     console.log(`The computer chose ${choices[randomChoice]}`);
-    // }
-    // else if (randomChoice === 1){
-    //     console.log(`The computer chose ${choices[randomChoice]}`);
-    // }
-    // else{
-    //     console.log(`The computer chose ${choices[randomChoice]}`);
-    // }
-
-    return choices[randomChoice];
-
+    return compChoice[randomChoice];
 }
 
+
+const playerSelection = prompt("Choose Rock, Paper, or Scissors.");
 const computerSelection = getComputerChoice();
-const playerSelection = prompt("");
 
-
-function playRound(playerSelection, computerSelection ){
+function singleRound(playerSelection, computerSelection){
 
     const playerChoice = playerSelection.toLowerCase(playerSelection);
     const computerChoice = computerSelection;
 
-    if(playerChoice === "rock" && computerChoice === "paper" || playerChoice === "scissors" && computerChoice === "rock"){
-        return `The computer chose ${computerChoice}. You lost.`;
-    }
-    else if (playerChoice === "paper" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "scissors"){
-        
-        return `The computer chose ${computerChoice}. You win.`;
-    }
-    else if(playerChoice == "scissors" && computerChoice === "paper" || playerChoice === "paper" && computerChoice === "rock"){
+    console.log(`You chose ${playerChoice}.`);
+    console.log(`The computer chose ${computerChoice}.`);
 
-        return `The computer chose ${computerChoice}. You win.`;
-
+    if(playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "paper" && computerChoice === "rock" || playerChoice === "scissors" && computerChoice === "paper")
+    {
+        console.log(`You win.`);
+    }
+    else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "paper"){
+        console.log(`You lose.`);
     }
     else if (playerChoice === computerChoice){
-        return `The computer chose ${computerChoice} and you chose ${playerChoice}. It's a draw.`;
+        console.log(`DRAW.`);
     }
+    else{
+        console.log(`Please choose ROCK, PAPER, OR SCISSORS. `);
+    }
+    
 
-    console.log();
 }
 
-playRound(playerSelection, computerSelection);
-
+singleRound(playerSelection,computerSelection);

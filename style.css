@@ -6,4 +6,13 @@
 body{
     background-color: black;
     color: whitesmoke;
+    height: 100vh;
 }
+.title{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
