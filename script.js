@@ -1,3 +1,9 @@
+
+
+
+const playerSelection = prompt("Choose Rock, Paper, or Scissors.");
+const computerSelection = getComputerChoice();
+
 //Auto generated computer choice funtion
 function getComputerChoice(){
 
@@ -8,33 +14,36 @@ function getComputerChoice(){
     return compChoice[randomChoice];
 }
 
-
-const playerSelection = prompt("Choose Rock, Paper, or Scissors.");
-const computerSelection = getComputerChoice();
-
-function singleRound(playerSelection, computerSelection){
+function playRound(playerSelection, computerSelection){
 
     const playerChoice = playerSelection.toLowerCase(playerSelection);
     const computerChoice = computerSelection;
 
-    console.log(`You chose ${playerChoice}.`);
-    console.log(`The computer chose ${computerChoice}.`);
+    let result = "";
 
     if(playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "paper" && computerChoice === "rock" || playerChoice === "scissors" && computerChoice === "paper")
     {
-        console.log(`You win.`);
+        return result = `You chose ${playerChoice}. The computer chose ${computerChoice}. YOU WIN.`;
     }
     else if (playerChoice === "paper" && computerChoice === "scissors" || playerChoice === "scissors" && computerChoice === "rock" || playerChoice === "rock" && computerChoice === "paper"){
-        console.log(`You lose.`);
+        return result = `You chose ${playerChoice}. The computer chose ${computerChoice}. YOU LOSE.`;
     }
     else if (playerChoice === computerChoice){
-        console.log(`DRAW.`);
+        return result = `You chose ${playerChoice}. The computer chose ${computerChoice}. DRAW.`;
     }
     else{
-        console.log(`Please choose ROCK, PAPER, OR SCISSORS. `);
+        return result = `Please choose ROCK, PAPER, OR SCISSORS. `;
     }
     
 
 }
 
-singleRound(playerSelection,computerSelection);
+
+
+function game(){
+    playRound(playerSelection,computerSelection);
+
+    console.log(playRound(playerSelection,computerSelection));
+}
+
+game();
